@@ -1,0 +1,2 @@
+/api/*  https://stackpath-2f9z.onrender.com/api/:splat  200
+/*      /index.html                                     200
