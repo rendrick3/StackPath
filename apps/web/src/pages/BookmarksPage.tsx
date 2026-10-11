@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Bookmark, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { apiUrl } from '../config/api';
 
 export const BookmarksPage: React.FC = () => {
   const { user, token } = useAuth();
@@ -15,7 +16,7 @@ export const BookmarksPage: React.FC = () => {
         return;
       }
       try {
-        const res = await fetch('/api/bookmarks', {
+        const res = await fetch(apiUrl('/api/bookmarks'), {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {

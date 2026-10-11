@@ -22,6 +22,7 @@ import { LessonContent, ModuleOverview } from '@stackpath/shared';
 import { lessons, modules } from '@stackpath/content';
 import { useAuth } from '../context/AuthContext';
 import { CodeBlock } from '../components/CodeBlock';
+import { apiUrl } from '../config/api';
 
 export const LessonReaderPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -66,7 +67,7 @@ export const LessonReaderPage: React.FC = () => {
       if (!token || !lesson) return;
 
       try {
-        const compRes = await fetch('/api/progress/completed', {
+        const compRes = await fetch(apiUrl('/api/progress/completed'), {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (compRes.ok) {
@@ -74,7 +75,7 @@ export const LessonReaderPage: React.FC = () => {
           setIsCompleted(compData.completedLessonIds.includes(lesson.id));
         }
 
-        const noteRes = await fetch(`/api/notes/${lesson.id}`, {
+        const noteRes = await fetch(apiUrl(`/api/notes/${lesson.id}`), {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (noteRes.ok) {
@@ -82,7 +83,7 @@ export const LessonReaderPage: React.FC = () => {
           setNoteContent(noteData.note ? noteData.note.content : '');
         }
 
-        const bmRes = await fetch('/api/bookmarks', {
+        const bmRes = await fetch(apiUrl('/api/bookmarks'), {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (bmRes.ok) {
@@ -121,7 +122,7 @@ export const LessonReaderPage: React.FC = () => {
     }
 
     try {
-      const res = await fetch('/api/progress/toggle-lesson', {
+      const res = await fetch(apiUrl('/api/progress/toggle-lesson'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -145,7 +146,7 @@ export const LessonReaderPage: React.FC = () => {
     }
 
     try {
-      const res = await fetch('/api/bookmarks/toggle', {
+      const res = await fetch(apiUrl('/api/bookmarks/toggle'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -170,7 +171,7 @@ export const LessonReaderPage: React.FC = () => {
 
     setIsSavingNote(true);
     try {
-      const res = await fetch(`/api/notes/${lesson.id}`, {
+      const res = await fetch(apiUrl(`/api/notes/${lesson.id}`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

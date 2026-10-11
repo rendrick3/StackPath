@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Award, CheckCircle2, XCircle, ArrowLeft, RotateCcw, HelpCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { QuizQuestion, QuizAttemptResult } from '@stackpath/shared';
+import { apiUrl } from '../config/api';
 
 export const QuizPage: React.FC = () => {
   const { moduleId } = useParams<{ moduleId: string }>();
@@ -19,7 +20,7 @@ export const QuizPage: React.FC = () => {
     async function loadQuiz() {
       if (!moduleId) return;
       try {
-        const res = await fetch(`/api/quizzes/${moduleId}`);
+        const res = await fetch(apiUrl(`/api/quizzes/${moduleId}`));
         if (res.ok) {
           const data = await res.json();
           setQuestions(data.questions || []);
@@ -49,7 +50,7 @@ export const QuizPage: React.FC = () => {
         selectedIndex: selectedAnswers[q.id] !== undefined ? selectedAnswers[q.id] : -1
       }));
 
-      const res = await fetch(`/api/quizzes/${moduleId}/attempt`, {
+      const res = await fetch(apiUrl(`/api/quizzes/${moduleId}/attempt`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

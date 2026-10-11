@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, Trash2, ArrowRight, Search } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { apiUrl } from '../config/api';
 
 export const NotesPage: React.FC = () => {
   const { user, token } = useAuth();
@@ -16,7 +17,7 @@ export const NotesPage: React.FC = () => {
         return;
       }
       try {
-        const res = await fetch('/api/notes', {
+        const res = await fetch(apiUrl('/api/notes'), {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {
@@ -35,7 +36,7 @@ export const NotesPage: React.FC = () => {
   const handleDelete = async (lessonId: string) => {
     if (!token) return;
     try {
-      const res = await fetch(`/api/notes/${lessonId}`, {
+      const res = await fetch(apiUrl(`/api/notes/${lessonId}`), {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

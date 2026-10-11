@@ -17,6 +17,7 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { UserStats } from '@stackpath/shared';
 import { modules, lessons } from '@stackpath/content';
+import { apiUrl } from '../config/api';
 
 export const DashboardPage: React.FC = () => {
   const { user, token } = useAuth();
@@ -32,7 +33,7 @@ export const DashboardPage: React.FC = () => {
       }
 
       try {
-        const res = await fetch('/api/progress/stats', {
+        const res = await fetch(apiUrl('/api/progress/stats'), {
           headers: { Authorization: `Bearer ${token}` }
         });
 
