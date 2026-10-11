@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: stackpath-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: stackpath_academy
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: stackpath-api
+    restart: unless-stopped
+    environment:
+      PORT: 4000
+      CLIENT_URL: http://localhost:5173
+      JWT_SECRET: production_super_secret_jwt_key_2026
+      DATABASE_URL: postgresql://postgres:postgrespassword@postgres:5432/stackpath_academy?schema=public
+    ports:
+      - '4000:4000'
+    depends_on:
+      - postgres
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: stackpath-web
+    restart: unless-stopped
+    ports:
+      - '5173:80'
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

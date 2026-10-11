@@ -1,0 +1,5 @@
+node_modules
+.agents
+.aider-desk
+graphify-out
+.env

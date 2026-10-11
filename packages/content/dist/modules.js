@@ -1,0 +1,560 @@
+export const modules = [
+    // Phase 1: Absolute Beginner Foundations
+    {
+        id: 'mod-1',
+        phaseId: 1,
+        moduleNumber: 1,
+        title: 'Introduction to Computers & Programming',
+        slug: 'computers-and-programming-fundamentals',
+        description: 'Demystify computers from the ground up: hardware vs software, CPU instructions, memory, compiled vs interpreted languages, and algorithmic thinking.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 6,
+        prerequisites: [],
+        learningObjectives: [
+            'Differentiate between hardware and software components',
+            'Understand how operating systems schedule processes and manage files',
+            'Explain what source code is and how computers execute instructions',
+            'Understand the difference between interpreted and compiled code',
+            'Formulate beginner-level problem-solving algorithms and debugging routines'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 3,
+        hasQuiz: true,
+        projectConnection: 'Foundation for all programming syntax and mental models.'
+    },
+    {
+        id: 'mod-2',
+        phaseId: 1,
+        moduleNumber: 2,
+        title: 'Internet & Web Fundamentals',
+        slug: 'internet-and-web-fundamentals',
+        description: 'Learn how the World Wide Web operates: clients, servers, IP addresses, DNS resolution, TCP/IP, HTTP/HTTPS requests and responses, and the complete page-load journey.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 8,
+        prerequisites: ['mod-1'],
+        learningObjectives: [
+            'Explain the difference between the internet and the World Wide Web',
+            'Trace the complete journey of entering a URL to browser render',
+            'Understand DNS lookup, IP addresses, ports, and socket connections',
+            'Deconstruct HTTP methods, status codes, headers, and payloads',
+            'Contrast static web pages with dynamic database-backed web applications'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Crucial for Project 1 (Personal Web Page) and API interaction.'
+    },
+    {
+        id: 'mod-3',
+        phaseId: 1,
+        moduleNumber: 3,
+        title: 'Development Environment & Command Line',
+        slug: 'dev-environment-and-command-line',
+        description: 'Master your developer toolkit: VS Code configuration, terminal commands, directory navigation, Node.js runtime, npm package management, and browser DevTools.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 7,
+        prerequisites: ['mod-1', 'mod-2'],
+        learningObjectives: [
+            'Navigate directory trees using standard terminal commands (cd, ls/dir, mkdir, rm)',
+            'Manage environment variables and file path resolutions',
+            'Understand Node.js execution and package.json lifecycle scripts',
+            'Install, audit, and clean npm dependencies with package-lock.json',
+            'Inspect network, console, and DOM elements in browser DevTools'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Used to initialize, build, and debug every subsequent project.'
+    },
+    // Phase 2: Frontend Development
+    {
+        id: 'mod-4',
+        phaseId: 2,
+        moduleNumber: 4,
+        title: 'HTML: Beginner to Advanced',
+        slug: 'html-beginner-to-advanced',
+        description: 'Build accessible, semantic markup: document layout, headings, links, responsive media, semantic containers, form inputs, validation, and SEO best practices.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 10,
+        prerequisites: ['mod-2', 'mod-3'],
+        learningObjectives: [
+            'Construct valid HTML5 documents with proper doctype, meta, and head tags',
+            'Utilize semantic elements (<header>, <nav>, <main>, <article>, <footer>) for screen readers and SEO',
+            'Build robust forms with accessible labels, diverse input types, and native validation',
+            'Structure tabular data and responsive multimedia (<picture>, <video>, <audio>)',
+            'Comply with WCAG accessibility standards and ARIA attributes'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Foundation for Project 1 (Personal Web Page).'
+    },
+    {
+        id: 'mod-5',
+        phaseId: 2,
+        moduleNumber: 5,
+        title: 'CSS: Beginner to Advanced',
+        slug: 'css-beginner-to-advanced',
+        description: 'Design beautiful, responsive user interfaces: cascade specificity, box model, Flexbox alignments, CSS Grid, media queries, CSS variables, and fluid transitions.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 14,
+        prerequisites: ['mod-4'],
+        learningObjectives: [
+            'Master the CSS Box Model: content, padding, border, and margin collapse',
+            'Architect one-dimensional layouts with Flexbox and two-dimensional grids with CSS Grid',
+            'Implement mobile-first responsive design using media queries and fluid sizing units (rem, ch, clamp)',
+            'Organize maintainable design systems with custom properties (CSS variables)',
+            'Create smooth GPU-accelerated micro-interactions, transitions, and keyframe animations'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 6,
+        hasQuiz: true,
+        projectConnection: 'Primary styling engine for Project 2 (Responsive Portfolio).'
+    },
+    {
+        id: 'mod-6',
+        phaseId: 2,
+        moduleNumber: 6,
+        title: 'JavaScript Fundamentals',
+        slug: 'javascript-fundamentals',
+        description: 'Learn the core programming language of the web: variables, primitive types, control flow, loops, functions, array methods, and basic algorithm design.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 16,
+        prerequisites: ['mod-1', 'mod-3'],
+        learningObjectives: [
+            'Declare variables using let, const and understand primitive vs reference types',
+            'Write reusable functions with parameters, default arguments, and return values',
+            'Harness high-order array methods (map, filter, reduce, find, some, every)',
+            'Manipulate objects with destructuring, spread, and rest syntax',
+            'Implement robust control flow, switch statements, and defensive error handling with try/catch'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 6,
+        hasQuiz: true,
+        projectConnection: 'Drives the logic for Project 3 (Interactive Task Manager).'
+    },
+    {
+        id: 'mod-7',
+        phaseId: 2,
+        moduleNumber: 7,
+        title: 'JavaScript Deep Dive & Runtime Internals',
+        slug: 'javascript-deep-dive',
+        description: 'Understand what happens behind the scenes: execution contexts, closures, the call stack, lexical scope, prototypal inheritance, Promises, async/await, and the Event Loop.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 18,
+        prerequisites: ['mod-6'],
+        learningObjectives: [
+            'Trace execution contexts, hoisting, and the Temporal Dead Zone',
+            'Harness closures and lexical scoping for data privacy and factory functions',
+            'Demystify the JavaScript Event Loop, Call Stack, Microtask queue, and Macrotask queue',
+            'Master asynchronous programming with Promises, Promise.all, and async/await syntax',
+            'Understand prototypes, ES6 classes, and object-oriented patterns in modern JavaScript'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Essential for handling asynchronous network requests in Project 4.'
+    },
+    {
+        id: 'mod-8',
+        phaseId: 2,
+        moduleNumber: 8,
+        title: 'Browser Programming & The DOM',
+        slug: 'browser-programming-and-dom',
+        description: 'Bridge JavaScript with the webpage: DOM selection and mutation, event bubbling and delegation, form handling, Fetch API, and localStorage/sessionStorage persistence.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 12,
+        prerequisites: ['mod-5', 'mod-6'],
+        learningObjectives: [
+            'Traverse, select, create, and remove DOM nodes dynamically',
+            'Manage user events with addEventListener, event bubbling, capturing, and delegation',
+            'Handle form submissions and perform client-side input validation',
+            'Communicate with public web APIs using fetch() and parse JSON payloads',
+            'Persist client data locally using localStorage, sessionStorage, and cookies'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Powers Project 3 (Interactive Task Manager) and Project 4 (API-Powered App).'
+    },
+    {
+        id: 'mod-9',
+        phaseId: 2,
+        moduleNumber: 9,
+        title: 'Git & GitHub Version Control',
+        slug: 'git-and-github-version-control',
+        description: 'Track code evolution like a professional: repositories, commits, branches, staging, rebasing, merge conflicts, remote pushes, and collaborative GitHub pull requests.',
+        difficulty: 'BEGINNER',
+        estimatedHours: 8,
+        prerequisites: ['mod-3'],
+        learningObjectives: [
+            'Initialize Git repositories and construct atomic, well-described commits',
+            'Branch feature workflows, merge code cleanly, and resolve merge conflicts',
+            'Push and pull changes with GitHub remotes and configure SSH keys',
+            'Collaborate using Pull Requests, code reviews, and issue trackers',
+            'Safeguard sensitive environment files using comprehensive .gitignore rules'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 3,
+        hasQuiz: true,
+        projectConnection: 'Used to track and version-control all project repositories.'
+    },
+    {
+        id: 'mod-10',
+        phaseId: 2,
+        moduleNumber: 10,
+        title: 'TypeScript: Static Typing for the Web',
+        slug: 'typescript-fundamentals-to-advanced',
+        description: 'Upgrade JavaScript with compile-time type safety: type annotations, interfaces, type aliases, unions, generics, discriminated unions, utility types, and runtime Zod validation.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 14,
+        prerequisites: ['mod-6', 'mod-7'],
+        learningObjectives: [
+            'Explain the distinction between static compile-time checking and runtime evaluation',
+            'Model complex data with interfaces, type aliases, and union/intersection types',
+            'Use type narrowing, type guards, and discriminated unions to avoid runtime bugs',
+            'Author flexible, type-safe generic functions and data structures',
+            'Integrate Zod for seamless runtime data validation paired with TypeScript static inference'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Powers Project 5 (TypeScript & React Dashboard) and backend schemas.'
+    },
+    {
+        id: 'mod-11',
+        phaseId: 2,
+        moduleNumber: 11,
+        title: 'React Fundamentals',
+        slug: 'react-fundamentals',
+        description: 'Build component-driven user interfaces: JSX syntax, components, props, state with useState, side effects with useEffect, conditional rendering, lists, and forms.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 18,
+        prerequisites: ['mod-6', 'mod-8', 'mod-10'],
+        learningObjectives: [
+            'Understand the problem React solves and how its declarative Virtual DOM reconciliation works',
+            'Construct modular component hierarchies passing unidirectional props',
+            'Manage local component state with useState and understand asynchronous render triggers',
+            'Execute side effects, network requests, and event subscriptions with useEffect and cleanup callbacks',
+            'Render dynamic lists with stable keys and build controlled form inputs'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 6,
+        hasQuiz: true,
+        projectConnection: 'Core frontend engine for Project 5 and Project 8 (Full-Stack Task Manager).'
+    },
+    {
+        id: 'mod-12',
+        phaseId: 2,
+        moduleNumber: 12,
+        title: 'Advanced React & Modern Frontend Architecture',
+        slug: 'advanced-react-and-architecture',
+        description: 'Scale frontend applications: custom hooks, Context API, client-side routing with React Router, server state with TanStack Query, code splitting, memoization, and error boundaries.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 20,
+        prerequisites: ['mod-11'],
+        learningObjectives: [
+            'Encapsulate and reuse complex stateful logic inside custom hooks',
+            'Architect client-side multi-page routing with React Router, nested routes, and loaders',
+            'Eliminate prop-drilling with Context API and state management patterns',
+            'Handle remote server caching, background re-fetching, and optimistic updates with TanStack Query',
+            'Optimize performance through code splitting, React.lazy, useMemo, and Error Boundaries'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Powers Project 5 (React Dashboard) and Project 9 (Mini CRM).'
+    },
+    // Phase 3: Backend Development
+    {
+        id: 'mod-13',
+        phaseId: 3,
+        moduleNumber: 13,
+        title: 'Web Architecture & HTTP REST APIs',
+        slug: 'web-architecture-and-rest-apis',
+        description: 'Design standardized, resilient API contracts: REST principles, resource naming, HTTP verbs, status codes, query pagination, headers, CORS, idempotency, and OpenAPI specs.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 12,
+        prerequisites: ['mod-2', 'mod-10'],
+        learningObjectives: [
+            'Define clear client-server boundaries and REST architectural constraints',
+            'Map HTTP verbs (GET, POST, PUT, PATCH, DELETE) to appropriate resource actions',
+            'Utilize accurate HTTP status codes (200, 201, 204, 400, 401, 403, 404, 422, 500)',
+            'Design query parameters for pagination, sorting, search, and filtering',
+            'Formulate comprehensive OpenAPI / Swagger specifications before coding'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Blueprints for Project 6 (REST API).'
+    },
+    {
+        id: 'mod-14',
+        phaseId: 3,
+        moduleNumber: 14,
+        title: 'Node.js: Server-Side JavaScript',
+        slug: 'nodejs-fundamentals-and-runtime',
+        description: 'Execute JavaScript outside the browser: V8 engine, CommonJS vs ESM modules, filesystem I/O, streams and buffers, process management, environment configs, and the Node event loop.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 14,
+        prerequisites: ['mod-6', 'mod-7'],
+        learningObjectives: [
+            'Understand the architecture of Node.js: V8 engine, libuv, and non-blocking I/O',
+            'Perform safe asynchronous filesystem operations using node:fs/promises',
+            'Work with Streams and Buffers to efficiently stream large payloads without memory spikes',
+            'Manage operating system processes, signals (SIGINT, SIGTERM), and graceful shutdowns',
+            'Build a native Node.js HTTP server from scratch without third-party frameworks'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Foundation for building custom CLI tools and Project 6 (REST API).'
+    },
+    {
+        id: 'mod-15',
+        phaseId: 3,
+        moduleNumber: 15,
+        title: 'Express.js & Layered Backend Architecture',
+        slug: 'expressjs-and-backend-architecture',
+        description: 'Architect scalable web services: middleware execution pipelines, controllers, service layers, route modularization, centralized error handling, and Zod validation middleware.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 16,
+        prerequisites: ['mod-13', 'mod-14'],
+        learningObjectives: [
+            'Configure an Express application with modular routers, JSON parsing, and CORS headers',
+            'Understand the middleware pattern: req, res, next, and execution order',
+            'Decouple code into Layered Architecture: Routes → Controllers → Services → Data Access',
+            'Build reusable Zod validation middleware for request body, params, and queries',
+            'Implement centralized error handling middleware with custom ApplicationError classes'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Primary backend framework for Project 6 (REST API) and Project 8.'
+    },
+    // Phase 4: Databases and Data Modeling
+    {
+        id: 'mod-16',
+        phaseId: 4,
+        moduleNumber: 16,
+        title: 'Database Fundamentals & Relational SQL',
+        slug: 'database-fundamentals-and-sql',
+        description: 'Store persistent data reliably: relational vs non-relational trade-offs, table structures, keys, constraints, pure SQL CRUD, JOINs, aggregations, transactions, and ACID principles.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 16,
+        prerequisites: ['mod-13'],
+        learningObjectives: [
+            'Contrast relational databases (RDBMS) with document stores (NoSQL)',
+            'Model tables with appropriate data types, Primary Keys, Foreign Keys, and CHECK constraints',
+            'Write advanced SQL queries with INNER JOIN, LEFT JOIN, GROUP BY, and HAVING',
+            'Understand database transactions, SAVEPOINTS, and ACID guarantees',
+            'Design normalized relational schemas (1NF, 2NF, 3NF) to eliminate data duplication'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 6,
+        hasQuiz: true,
+        projectConnection: 'Foundation for Project 7 (Database Application).'
+    },
+    {
+        id: 'mod-17',
+        phaseId: 4,
+        moduleNumber: 17,
+        title: 'PostgreSQL & Prisma ORM',
+        slug: 'postgresql-and-prisma-orm',
+        description: 'Connect code to databases with modern tools: PostgreSQL setup, schema modeling with Prisma, migrations, type-safe queries, relations, connection pooling, and seed scripts.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 16,
+        prerequisites: ['mod-10', 'mod-15', 'mod-16'],
+        learningObjectives: [
+            'Connect Node.js to PostgreSQL using connection strings and environment variables',
+            'Define declarative database schemas in schema.prisma with 1-to-1, 1-to-many, and many-to-many relations',
+            'Execute version-controlled migrations and maintain schema evolution',
+            'Perform type-safe CRUD operations, nested includes, and pagination with Prisma Client',
+            'Write automated seed scripts to initialize development databases with deterministic fixtures'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Database foundation for Project 7, 8, 9, 10, and StackPath Academy itself.'
+    },
+    // Phase 5: Security and Full-Stack Integration
+    {
+        id: 'mod-18',
+        phaseId: 5,
+        moduleNumber: 18,
+        title: 'Authentication & Authorization',
+        slug: 'authentication-and-authorization',
+        description: 'Protect applications and identity: bcrypt password hashing, JWTs, HTTP-only secure cookies, sessions, role-based access control (RBAC), and OWASP Top 10 vulnerabilities.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 18,
+        prerequisites: ['mod-15', 'mod-17'],
+        learningObjectives: [
+            'Distinguish between Authentication (who you are) and Authorization (what you can do)',
+            'Hash and salt passwords safely with bcryptjs; never store plaintext passwords',
+            'Implement JWT token issuing, verification, expiration, and refresh token rotation',
+            'Secure tokens in HTTP-only, SameSite, Secure cookies to mitigate XSS exposure',
+            'Enforce Role-Based Access Control (RBAC) and resource-level authorization checks'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Core security layer in Project 8 (Full-Stack Task Manager) and Project 9.'
+    },
+    {
+        id: 'mod-19',
+        phaseId: 5,
+        moduleNumber: 19,
+        title: 'Complete Full-Stack Integration',
+        slug: 'complete-full-stack-integration',
+        description: 'Unite React frontend with Express backend: end-to-end data flow, authenticated API clients, unified error handling, loading skeletons, file uploads, and pagination.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 20,
+        prerequisites: ['mod-12', 'mod-15', 'mod-17', 'mod-18'],
+        learningObjectives: [
+            'Connect React applications to Express APIs with Axios / Fetch interceptors for auth tokens',
+            'Coordinate frontend validation with backend schema checks without repeating business logic',
+            'Manage optimistic UI mutations, error rollbacks, and server state synchronization',
+            'Implement multi-layer debugging from browser DevTools to API server logs and DB queries',
+            'Build end-to-end user features from database schema migration to responsive UI rendering'
+        ],
+        lessonsCount: 6,
+        exercisesCount: 5,
+        hasQuiz: true,
+        projectConnection: 'Powers Project 8 (Full-Stack Task Manager) and Project 9 (Mini CRM).'
+    },
+    // Phase 6: Testing, Quality, and Engineering
+    {
+        id: 'mod-20',
+        phaseId: 6,
+        moduleNumber: 20,
+        title: 'Testing & Quality Assurance',
+        slug: 'testing-and-quality-assurance',
+        description: 'Write resilient automated test suites: unit tests, integration tests, API testing with Supertest, frontend component testing with Vitest and RTL, mocking, and TDD.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 16,
+        prerequisites: ['mod-10', 'mod-12', 'mod-15'],
+        learningObjectives: [
+            'Understand the Testing Pyramid: Unit tests, Integration tests, and End-to-End tests',
+            'Write fast, deterministic unit tests for business utilities using Vitest',
+            'Test HTTP endpoints end-to-end with Supertest, verifying headers, status codes, and JSON bodies',
+            'Test React components from the user’s perspective using React Testing Library',
+            'Mock external dependencies, database calls, and network requests cleanly'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Automates verification across all subsequent projects.'
+    },
+    {
+        id: 'mod-21',
+        phaseId: 6,
+        moduleNumber: 21,
+        title: 'Writing Maintainable Software & Architecture',
+        slug: 'writing-maintainable-software',
+        description: 'Scale code without chaos: SOLID principles, clean code heuristics, separation of concerns, DRY vs premature abstraction, technical debt, and architectural decision records.',
+        difficulty: 'INTERMEDIATE',
+        estimatedHours: 14,
+        prerequisites: ['mod-19', 'mod-20'],
+        learningObjectives: [
+            'Apply SOLID design principles and clean code naming conventions in full-stack projects',
+            'Balance DRY (Don’t Repeat Yourself) against premature abstraction (YAGNI & KISS)',
+            'Refactor messy legacy code safely backed by automated test coverage',
+            'Structure code by domain features rather than monolithic technical groupings',
+            'Document architectural decisions with lightweight ADRs (Architectural Decision Records)'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 3,
+        hasQuiz: true,
+        projectConnection: 'Transforms casual developers into professional software engineers.'
+    },
+    // Phase 7: Advanced Full-Stack Development & DevOps
+    {
+        id: 'mod-22',
+        phaseId: 7,
+        moduleNumber: 22,
+        title: 'Advanced Full-Stack Features: Caching & WebSockets',
+        slug: 'advanced-caching-and-websockets',
+        description: 'Build real-time, high-performance features: Redis in-memory caching, cache invalidation strategies, WebSockets with Socket.IO, background jobs, and cloud object storage.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 18,
+        prerequisites: ['mod-15', 'mod-17', 'mod-19'],
+        learningObjectives: [
+            'Speed up read-heavy API responses using Redis in-memory key-value caching',
+            'Handle cache invalidation strategies (Cache-Aside, Write-Through, TTL expiration)',
+            'Implement bidirectional real-time communication using WebSockets and Socket.IO',
+            'Process asynchronous background jobs (emails, exports, media processing) using message queues',
+            'Handle secure file uploads using signed URLs and cloud object storage (S3-compatible)'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Directly powers Project 10 (Real-Time Collaboration Application).'
+    },
+    {
+        id: 'mod-23',
+        phaseId: 7,
+        moduleNumber: 23,
+        title: 'Performance & Reliability Engineering',
+        slug: 'performance-and-reliability',
+        description: 'Optimize across the stack: Core Web Vitals, bundle optimization, database query indexing with EXPLAIN ANALYZE, connection pooling, rate limiting, and graceful degradation.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 14,
+        prerequisites: ['mod-12', 'mod-17', 'mod-19'],
+        learningObjectives: [
+            'Measure and improve Core Web Vitals (LCP, INP, CLS) and minimize JavaScript bundle sizes',
+            'Analyze and optimize SQL queries using PostgreSQL EXPLAIN ANALYZE and B-Tree indexes',
+            'Configure database connection poolers (PgBouncer) for high concurrent traffic',
+            'Protect backend services with rate limiting, circuit breakers, and timeouts',
+            'Detect and resolve memory leaks in Node.js event listeners and React components'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 3,
+        hasQuiz: true,
+        projectConnection: 'Critical for production hardening of Project 9, 10, and Capstone.'
+    },
+    {
+        id: 'mod-24',
+        phaseId: 7,
+        moduleNumber: 24,
+        title: 'Deployment, Docker & DevOps Pipelines',
+        slug: 'deployment-docker-and-devops',
+        description: 'Ship software like a pro: containerizing apps with Docker & Docker Compose, GitHub Actions CI/CD pipelines, production builds, reverse proxies, and cloud infrastructure.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 18,
+        prerequisites: ['mod-15', 'mod-17', 'mod-20'],
+        learningObjectives: [
+            'Containerize frontend, backend, and PostgreSQL database with Docker and multi-stage builds',
+            'Orchestrate local multi-container development environments using Docker Compose',
+            'Automate linting, testing, and builds using GitHub Actions Continuous Integration (CI)',
+            'Deploy full-stack applications with production environment variables, reverse proxies, and TLS',
+            'Execute zero-downtime database migrations during production deployment rollouts'
+        ],
+        lessonsCount: 5,
+        exercisesCount: 4,
+        hasQuiz: true,
+        projectConnection: 'Required to deploy Project 8, 9, 10, and Project 11 (Capstone).'
+    },
+    {
+        id: 'mod-25',
+        phaseId: 7,
+        moduleNumber: 25,
+        title: 'Production Engineering & Maintenance',
+        slug: 'production-engineering-and-maintenance',
+        description: 'Keep applications alive and healthy in the real world: structured logging, health checks, error telemetry, backup automation, incident response, and security patching.',
+        difficulty: 'ADVANCED',
+        estimatedHours: 12,
+        prerequisites: ['mod-24'],
+        learningObjectives: [
+            'Implement production readiness review checklists before application launches',
+            'Setup structured JSON logging and liveness/readiness health-check endpoints (/healthz)',
+            'Configure error tracking telemetry (Sentry) and proactive uptime alerts',
+            'Establish automated database snapshot backups and disaster recovery verification procedures',
+            'Manage security patches, vulnerability alerts (npm audit), and post-incident reviews'
+        ],
+        lessonsCount: 4,
+        exercisesCount: 3,
+        hasQuiz: true,
+        projectConnection: 'The final milestone for Project 11 (Independent Capstone).'
+    }
+];
+//# sourceMappingURL=modules.js.map

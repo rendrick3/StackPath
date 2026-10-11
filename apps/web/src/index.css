@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Core Brand Tokens */
+    --color-brand-primary: #174D3A;
+    --color-brand-deep: #103A2C;
+    --color-brand-teal: #167D78;
+    --color-brand-mint: #DCEFE8;
+    --color-brand-mint-surface: #EDF6F1;
+
+    /* Semantic Application Surfaces (Light Mode) */
+    --color-app-bg: #F7F5EF;
+    --color-surface: #FFFFFF;
+    --color-surface-secondary: #F0F1EA;
+    --color-border: #D9DED6;
+    --color-border-subtle: #E6EAE3;
+
+    /* Typography (Light Mode) */
+    --color-text-primary: #25312B;
+    --color-text-secondary: #525E56;
+    --color-text-muted: #626D65;
+    --color-link: #126B63;
+
+    /* Navigation & Selection (Light Mode) */
+    --color-selection-bg: #DCEFE8;
+    --color-selection-text: #174D3A;
+
+    /* Semantic Accents (Light Mode) */
+    --color-amber: #F3C969;
+    --color-amber-text: #66480A;
+    --color-amber-bg: #FCF4DF;
+    --color-amber-border: #E8D39E;
+
+    --color-success: #237448;
+    --color-success-bg: #EAF4EE;
+    --color-success-border: #B7D9C3;
+
+    --color-warning: #8A5A00;
+    --color-warning-bg: #FAF2E3;
+    --color-warning-border: #EAD09E;
+
+    --color-error: #B42318;
+    --color-error-bg: #FDF0EE;
+    --color-error-border: #F5C4BF;
+
+    --color-info: #245D9C;
+    --color-info-bg: #EEF4FA;
+    --color-info-border: #C0D6EC;
+
+    --color-focus-ring: #174D3A;
+
+    /* Code Surface Tokens (Dark Editor) */
+    --color-code-bg: #141B17;
+    --color-code-surface: #1B2620;
+    --color-code-text: #E3EDE6;
+    --color-code-border: #28362E;
+    --color-code-keyword: #78D4C7;
+    --color-code-string: #A8E0BE;
+    --color-code-comment: #768A7E;
+  }
+
+  html.dark {
+    /* Core Brand Tokens (Dark Mode) */
+    --color-brand-primary: #8BC9A5;
+    --color-brand-deep: #103A2C;
+    --color-brand-teal: #78D4C7;
+    --color-brand-mint: #263C31;
+    --color-brand-mint-surface: #1E2E25;
+
+    /* Semantic Application Surfaces (Dark Mode) */
+    --color-app-bg: #141B17;
+    --color-surface: #1C2620;
+    --color-surface-secondary: #25312B;
+    --color-border: #39483F;
+    --color-border-subtle: #2C3A32;
+
+    /* Typography (Dark Mode) */
+    --color-text-primary: #F1F5F1;
+    --color-text-secondary: #C1CDC4;
+    --color-text-muted: #8E9F94;
+    --color-link: #78D4C7;
+
+    /* Navigation & Selection (Dark Mode) */
+    --color-selection-bg: #263C31;
+    --color-selection-text: #8BC9A5;
+
+    /* Semantic Accents (Dark Mode) */
+    --color-amber: #F3C969;
+    --color-amber-text: #FBE6AB;
+    --color-amber-bg: #2D2615;
+    --color-amber-border: #5C4A1C;
+
+    --color-success: #8BC9A5;
+    --color-success-bg: #1B2E24;
+    --color-success-border: #2B4E3C;
+
+    --color-warning: #E5B25D;
+    --color-warning-bg: #2C2314;
+    --color-warning-border: #564019;
+
+    --color-error: #F27F77;
+    --color-error-bg: #321918;
+    --color-error-border: #622B29;
+
+    --color-info: #79B5EB;
+    --color-info-bg: #182736;
+    --color-info-border: #284460;
+
+    --color-focus-ring: #8BC9A5;
+
+    /* Code Surface Tokens (Dark Mode) */
+    --color-code-bg: #0F1411;
+    --color-code-surface: #18211C;
+    --color-code-text: #E3EDE6;
+    --color-code-border: #28362E;
+    --color-code-keyword: #78D4C7;
+    --color-code-string: #A8E0BE;
+    --color-code-comment: #768A7E;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-app-bg);
+    color: var(--color-text-primary);
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Base Light Theme */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #F7F5EF;
+  color: #25312B;
+}
+
+/* Base Dark Theme */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #141B17;
+  color: #F1F5F1;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(82, 94, 86, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 94, 86, 0.45);
+}
+
+/* Accessible Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Callout Styling (Forest & Ivory Semantic System) */
+.callout-note {
+  border-left: 3px solid var(--color-brand-primary);
+  background-color: var(--color-brand-mint-surface);
+  color: var(--color-text-primary);
+}
+
+.callout-warning, .callout-amber {
+  border-left: 3px solid var(--color-warning);
+  background-color: var(--color-amber-bg);
+  color: var(--color-amber-text);
+}
+
+.callout-success {
+  border-left: 3px solid var(--color-success);
+  background-color: var(--color-success-bg);
+  color: var(--color-text-primary);
+}
+
+.callout-mistake, .callout-error {
+  border-left: 3px solid var(--color-error);
+  background-color: var(--color-error-bg);
+  color: var(--color-text-primary);
+}
+
+.callout-info {
+  border-left: 3px solid var(--color-info);
+  background-color: var(--color-info-bg);
+  color: var(--color-text-primary);
+}
+
+/* Reading font-size adjustments */
+body.font-size-standard {
+  --reading-font-size: 1.0625rem; /* 17px */
+  --reading-line-height: 1.75;
+}
+
+body.font-size-large {
+  --reading-font-size: 1.1875rem; /* 19px */
+  --reading-line-height: 1.8;
+}
+
+body.font-size-xl {
+  --reading-font-size: 1.3125rem; /* 21px */
+  --reading-line-height: 1.85;
+}
+
+.reading-body {
+  font-size: var(--reading-font-size, 1.0625rem);
+  line-height: var(--reading-line-height, 1.75);
+}
