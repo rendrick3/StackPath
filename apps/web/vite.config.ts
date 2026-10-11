@@ -18,6 +18,6 @@ export default defineConfig({
     }
   },
   preview: {
-    allowedHosts: true
+    allowedHosts: ['stackpath-2f9z.onrender.com', '.onrender.com', 'localhost']
   }
 });
